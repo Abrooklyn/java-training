@@ -26,19 +26,19 @@ public class ArrayTraining {
      */
     public int[] intArray(int a, int b, int c) {
 
-        return new int[] {a, b, c};
+        return new int[]{a,b,c};
     }
 
     /**
      * @param a first value, eg: "test"
      * @param b second value, eg: "sample"
      * @param c third value, eg: "value"
-     * @return an int array with a, b and c values,
+     * @return a String array with a, b and c values,
      * eg: {"test", sample", "value"}
      */
     public String[] stringArray(String a, String b, String c) {
 
-        return new String[] {a, b, c};
+        return new String[]{a,b,c};
     }
 
     /**
@@ -65,7 +65,7 @@ public class ArrayTraining {
      */
     public int lastValue(int[] array) {
 
-        return array[array.length-1];
+        return array[array.length -1];
     }
 
     /**
@@ -95,7 +95,12 @@ public class ArrayTraining {
      * @return sum of values of the array, eg: 6
      */
     public int sum(int[] array) {
-        return sum (array);
+
+        int i = 0;
+        for(int a : array){
+            i+=a;
+        }
+        return i;
     }
 
     /**
@@ -104,23 +109,21 @@ public class ArrayTraining {
      * @return if array contains searched value, eg: true
      */
     public boolean contains(int[] array, int search) {
-
-        return true;
+        for (int i :array)
+            if (search == i)
+                return true;
+        return false;
     }
 
     /**
      * @param array, eg: {"sample", "value"}
      * @return array where all words are capitalized, eg: {"Sample", "Value"}
      */
-    public String[] capitalize(String[] array) {
-
-        for(int i=0; i < array.length; i++){
-
-            array[i]=array[i].substring(0,1).toUpperCase() + array[i].substring(1).toLowerCase();
+    public static String[] capitalize(String[] array) {
+        for (int i =0; i < array.length; i++){
+            array[i] = array[i].substring(0, 1).toUpperCase() + array[i].substring(1);
         }
-
         return array;
-
     }
 
     /**
@@ -131,35 +134,22 @@ public class ArrayTraining {
      */
     public boolean equals(int[] first, int[] second) {
 
-        boolean isSame = true;
-        int length = length(first);
-        int i = 0;
-
-        while (isSame && (i<length)){
-            if (first[i] != second[i]){
-
-                return false;
-            }
-            i++;
-        }
-
-        return isSame;
+        return !first.equals(second);
     }
 
     /**
      * @param array, eg: {1, 2, 3}
      * @return array with reversed values, eg: {3, 2, 1}
      */
-    public int[] reverse(int[] array){
-
-        for (int i = 0; i < (array.length-1)/2; i++){
-
-            int number = array[i];
-            array[i] = array[array.length-1-i];
-            array[array.length-1-i] = number;
+    public int[] reverse(int[] array) {
+        int[] reverse = new int[array.length];
+        for (int i =0; i <array.length;i++){
+            reverse[array.length - i - 1] = array[i];
         }
-        return array;
+
+        return reverse;
     }
+
     /**
      * @param first,  eg: {1, 2, 3}
      * @param second, eg: {4, 5}
@@ -167,7 +157,13 @@ public class ArrayTraining {
      * eg: {1, 2, 3, 4, 5}
      */
     public int[] concat(int[] first, int[] second) {
-
-        return concat(first, second);
+        int[] concat = new int[first.length + second.length];
+        for (int i =0; i< first.length;i++){
+            concat[i] = first[i];
+        }
+        for (int i =0; i< second.length;i++) {
+            concat[first.length+i] = second[i];
+        }
+            return concat;
     }
 }
