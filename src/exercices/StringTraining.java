@@ -6,7 +6,7 @@ public class StringTraining {
      */
     public static String helloFirstname(String firstname) {
 
-        return "Hello " + firstname;
+        return "Hello "+ firstname;
     }
 
     /**
@@ -16,7 +16,7 @@ public class StringTraining {
      */
     public static String concatArgs(String first, String second) {
 
-        return first + second;
+        return first+second;
     }
 
     /**
@@ -34,7 +34,7 @@ public class StringTraining {
      */
     public static String charToString(char value) {
 
-        return Character.toString(value);
+        return ""+value;
     }
 
     /**
@@ -43,7 +43,7 @@ public class StringTraining {
      */
     public static String intToString(int value) {
 
-        return Integer.toString(value);
+        return ""+value;
     }
 
     /**
@@ -88,7 +88,7 @@ public class StringTraining {
      */
     public static char lastChar(String string) {
 
-        return string.charAt(string.length()-1);
+        return string.charAt(string.length() -1);
     }
 
     /**
@@ -108,8 +108,7 @@ public class StringTraining {
      * @return the string with the first character in upper case, eg: "Test"
      */
     public static String capitalize(String string) {
-
-        return string.substring(0,1).toUpperCase() + string.substring(1);
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
     }
 
     /**
@@ -118,16 +117,12 @@ public class StringTraining {
      * @return the number of character occurrences in string, eg: 2
      */
     public static int occurrences(String string, char search) {
-
-        int occurences = 0;
-
-        for (int i = 0; i < string.length(); i++){
-
-            if (string.charAt(i) == search) {
-                occurences++;
-            }
+        int a = 0;
+        for(char c : string.toCharArray()){
+                if(c== search)
+                    a++;
         }
-        return occurences;
+        return a;
     }
 
     /**
@@ -138,7 +133,7 @@ public class StringTraining {
      */
     public static String replaceChar(String string, char search, char replace) {
 
-        return string.replace(search, replace);
+        return string.replace(search,replace);
     }
 
     /**
@@ -149,7 +144,7 @@ public class StringTraining {
      */
     public static String replaceString(String string, String search, String replace) {
 
-        return string.replaceAll(search, replace);
+        return string.replace(search, replace);
     }
 
     /**
@@ -159,7 +154,6 @@ public class StringTraining {
      */
     public static String[] split(String string, String delimiter) {
         // https://howtodoinjava.com/java/string/java-string-split-example/
-
         return string.split(delimiter);
     }
 
